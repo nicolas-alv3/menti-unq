@@ -1,25 +1,24 @@
-package com.unq.mentiunq.login;
+package com.unq.mentiunq.user;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "menti_login")
-public class Login {
+@Table(name = "menti_user")
+public class User {
     private String email;
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
-    private int id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
 
-    public Login() {
+    public User() {
 
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    @Id
-    public int getId() {
+    public Long getId() {
         return id;
     }
 

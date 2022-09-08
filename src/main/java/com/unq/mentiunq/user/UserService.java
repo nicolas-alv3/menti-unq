@@ -1,4 +1,4 @@
-package com.unq.mentiunq.login;
+package com.unq.mentiunq.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -8,15 +8,15 @@ import java.util.List;
 
 @Component(value = "productService")
 @Service
-public class LoginService {
+public class UserService {
     @Autowired
-    private LoginDAO loginDAO;
+    private UserDAO userDAO;
 
-    public Login login(Login login) {
-        return loginDAO.login(login);
+    public User createUser(User login) {
+        return userDAO.login(login);
     }
 
-    public List<Login> getLogins() {
-        return loginDAO.getAll();
+    public List<User> getUsers() {
+        return userDAO.getAll();
     }
 }
