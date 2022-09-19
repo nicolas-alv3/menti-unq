@@ -6,7 +6,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Component(value = "productService")
 @Service
 public class UserService {
     @Autowired
