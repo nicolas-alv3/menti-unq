@@ -19,4 +19,8 @@ public class PresentationService {
     public List<Presentation> getAllPresentations(String email) {
         return presentationDAO.getAll(email);
     }
+
+    public Presentation update(Presentation presentation) {
+        return presentationDAO.update(presentation);
+    }
 }

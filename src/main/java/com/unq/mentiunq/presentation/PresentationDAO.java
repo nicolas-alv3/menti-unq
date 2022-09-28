@@ -18,4 +18,8 @@ public class PresentationDAO {
     public List<Presentation> getAll(String email) {
         return presentationRepository.findByOwnerEmail(email);
     }
+
+    public Presentation update(Presentation presentation) {
+        return presentationRepository.save(presentation);
+    }
 }

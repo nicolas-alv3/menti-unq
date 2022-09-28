@@ -4,6 +4,7 @@ import com.auth0.client.auth.AuthAPI;
 import com.auth0.exception.Auth0Exception;
 import com.auth0.json.auth.UserInfo;
 import com.unq.mentiunq.presentation.model.Presentation;
+import com.unq.mentiunq.user.UserInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
@@ -19,34 +20,28 @@ import java.util.List;
 public class PresentationController {
     @Autowired
     private PresentationService presentationService;
-    @Value("${auth0.domain}")
-    private String domain;
-    @Value("${auth0.clientId}")
-    private String clientId;
-    @Value("${auth0.clientSecret}")
-    private String clientSecret;
 
+    @Autowired
+    private UserInfoService userInfoService;
 
     @PostMapping(value = "/")
     @ResponseBody
-    public Presentation createPresentation(HttpServletRequest req, @RequestBody @Valid Presentation presentation) throws Auth0Exception {
-        AuthAPI auth = new AuthAPI(domain, clientId, clientSecret);
-        UserInfo user = auth.userInfo(req.getHeader("authorization").split(" ")[1]).execute();
+    public Presentation createPresentation(HttpServletRequest req, @RequestBody @Valid Presentation presentation) {
+        UserInfo user = userInfoService.getUserInfo(req);
         presentation.setOwnerEmail(user.getValues().get("email").toString());
         return presentationService.create(presentation);
+    }
+
+    @PutMapping(value = "/")
+    @ResponseBody
+    public Presentation updatePresentation(@RequestBody @Valid Presentation presentation) {
+        return presentationService.update(presentation);
     }
 
     @GetMapping(value = "/individual")
     @ResponseBody
     public List<Presentation> currentUserPresentation(HttpServletRequest req) {
-        AuthAPI auth = new AuthAPI(domain, clientId, clientSecret);
-
-        try {
-            UserInfo userInfo = auth.userInfo(req.getHeader("authorization").split(" ")[1]).execute();
+            UserInfo userInfo = userInfoService.getUserInfo(req);
             return presentationService.getAllPresentations(userInfo.getValues().get("email").toString());
-
-        } catch (Auth0Exception e) {
-            throw new RuntimeException(e);
-        }
     }
 }
