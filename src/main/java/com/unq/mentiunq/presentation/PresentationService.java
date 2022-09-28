@@ -4,6 +4,8 @@ import com.unq.mentiunq.presentation.model.Presentation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 
 @Service
 public class PresentationService {
@@ -14,7 +16,7 @@ public class PresentationService {
         return presentationDAO.create(p);
     }
 
-    public Presentation[] getAllPresentations(String email) {
+    public List<Presentation> getAllPresentations(String email) {
         return presentationDAO.getAll(email);
     }
 }
