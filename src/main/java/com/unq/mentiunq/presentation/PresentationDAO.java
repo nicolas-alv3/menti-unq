@@ -11,4 +11,9 @@ public class PresentationDAO {
     public Presentation create(Presentation p) {
         return presentationRepository.save(p);
     }
+
+
+    public Presentation[] getAll(String email) {
+        return presentationRepository.findByOwnerEmail(email);
+    }
 }

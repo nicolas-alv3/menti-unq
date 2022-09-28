@@ -13,4 +13,8 @@ public class PresentationService {
     public Presentation create(Presentation p) {
         return presentationDAO.create(p);
     }
+
+    public Presentation[] getAllPresentations(String email) {
+        return presentationDAO.getAll(email);
+    }
 }
