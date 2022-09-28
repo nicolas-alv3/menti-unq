@@ -4,6 +4,8 @@ import com.unq.mentiunq.presentation.model.Presentation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 public class PresentationDAO {
     @Autowired
@@ -13,7 +15,7 @@ public class PresentationDAO {
     }
 
 
-    public Presentation[] getAll(String email) {
+    public List<Presentation> getAll(String email) {
         return presentationRepository.findByOwnerEmail(email);
     }
 }
