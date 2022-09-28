@@ -9,13 +9,14 @@ import org.springframework.web.bind.annotation.*;
 
 
 @RestController
-@Component(value = "PresentationController")
+@CrossOrigin("*")
 @RequestMapping("/presentation")
 public class PresentationController {
     @Autowired
     private PresentationService presentationService;
 
-    @RequestMapping(method = RequestMethod.POST, value = "/")
+    @PostMapping(value = "/private")
+    @ResponseBody
     public ResponseEntity<Presentation> createPresentation(@RequestBody Presentation presentation) {
         return new ResponseEntity<>(presentationService.create(presentation), HttpStatus.OK);
     }
