@@ -10,7 +10,7 @@ import java.util.List;
 @Setter
 public class Slide {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     String question;
