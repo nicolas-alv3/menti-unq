@@ -2,6 +2,7 @@ package com.unq.mentiunq.presentation;
 
 import com.auth0.json.auth.UserInfo;
 import com.unq.mentiunq.presentation.model.Presentation;
+import io.swagger.annotations.ApiOperation;
 import com.unq.mentiunq.user.UserInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -23,6 +24,7 @@ public class PresentationController {
 
     @PostMapping(value = "/")
     @ResponseBody
+    @ApiOperation(value = "Crea una presentacion")
     public Presentation createPresentation(HttpServletRequest req, @RequestBody @Valid Presentation presentation) {
         UserInfo user = userInfoService.getUserInfo(req);
         presentation.setOwnerEmail(user.getValues().get("email").toString());
@@ -37,6 +39,7 @@ public class PresentationController {
 
     @GetMapping(value = "/individual")
     @ResponseBody
+    @ApiOperation(value = "Obtiene las presentaciones del usuario conectado")
     public List<Presentation> currentUserPresentation(HttpServletRequest req) {
             UserInfo userInfo = userInfoService.getUserInfo(req);
             return presentationService.getAllPresentations(userInfo.getValues().get("email").toString());
