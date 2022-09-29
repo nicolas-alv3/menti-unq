@@ -1,5 +1,7 @@
 package com.unq.mentiunq.presentation.model;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -12,6 +14,7 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
+@ApiModel(value = "Presentation", description = "Representa una presentacion con sus correspondientes slides y dueño")
 public class Presentation {
     public Presentation(String name, String ownerEmail) {
         this.name = name;
