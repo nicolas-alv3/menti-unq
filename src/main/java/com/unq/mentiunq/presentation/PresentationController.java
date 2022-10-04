@@ -37,6 +37,12 @@ public class PresentationController {
         return presentationService.update(presentation);
     }
 
+    @DeleteMapping(value = "/{id}")
+    @ResponseBody
+    public void deletePresentation(@PathVariable Long id) {
+        presentationService.delete(id);
+    }
+
     @GetMapping(value = "/individual")
     @ResponseBody
     @ApiOperation(value = "Obtiene las presentaciones del usuario conectado")

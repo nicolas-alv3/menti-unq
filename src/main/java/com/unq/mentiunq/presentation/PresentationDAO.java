@@ -22,4 +22,12 @@ public class PresentationDAO {
     public Presentation update(Presentation presentation) {
         return presentationRepository.save(presentation);
     }
+
+    public void delete(Long id) {
+        if( presentationRepository.existsById(id)) {
+            presentationRepository.deleteById(id);
+        } else {
+            throw new RuntimeException("Presentation not found");
+        }
+    }
 }
