@@ -2,7 +2,8 @@
 
 ## Para correr la app:
 
-En intellij se deben setear las VM options con `-Dspring.profiles.active={ambiente}}` , por ejemplo para correrlo , deberíamos usar `-Dspring.profiles.active=local`.
+Se puede correr con
+`bash run.sh`, o bien corriendo la app desde intellij y levantando docker compose a mano `docker compose up`
 
 ![configImage.png](/src/main/resources/configImage.png)
 
