@@ -16,6 +16,12 @@ En intellij se deben setear las VM options con `-Dspring.profiles.active={ambien
 [Link al drive](https://app.diagrams.net/#G1YICNg5vj1PZvs2D5bFTnru9EpZPZcNd0)
 ![classDiagram.png](/src/main/resources/class_diagram.png)
 
+## Docker
+
+Para levantar el contenedor de postgres debemor correr `docker compose up` parados en el root del proyecto.
+Podemos configurar DataGrip de la siguiente forma para crear la conexión
+![img.png](src/main/resources/postgres_config.png)
+
 
 ### Swagger
 
