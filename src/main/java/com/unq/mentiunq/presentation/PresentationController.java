@@ -45,11 +45,4 @@ public class PresentationController {
             return presentationService.getAllPresentations(userInfo.getValues().get("email").toString());
     }
 
-    @GetMapping(value = "/individual2")
-    @ResponseBody
-    @ApiOperation(value = "Obtiene las presentaciones del usuario conectado")
-    public List<Presentation> currentUserPresentation2(HttpServletRequest req) {
-        UserInfo userInfo = userInfoService.getUserInfo(req);
-        return presentationService.getAllPresentations(userInfo.getValues().get("email").toString());
-    }
 }
