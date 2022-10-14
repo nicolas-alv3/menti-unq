@@ -1,1 +1,5 @@
-sudo docker compose down && sudo docker compose up -d && mvn spring-boot:run -Dspring-boot.run.profiles=local
+sudo mvn clean install -DskipTests
+sudo mvn package
+sudo docker build -t  mentiunq .
+sudo docker compose down
+sudo docker compose up
