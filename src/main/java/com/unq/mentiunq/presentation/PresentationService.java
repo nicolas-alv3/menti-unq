@@ -27,4 +27,8 @@ public class PresentationService {
     public void delete(Long id) {
         presentationDAO.delete(id);
     }
+
+    public Presentation getById(Long id) {
+        return presentationDAO.getById(id);
+    }
 }

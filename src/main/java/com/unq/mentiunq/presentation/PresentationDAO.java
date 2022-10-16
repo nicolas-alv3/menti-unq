@@ -1,6 +1,7 @@
 package com.unq.mentiunq.presentation;
 
 import com.unq.mentiunq.presentation.model.Presentation;
+import lombok.val;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -28,6 +29,16 @@ public class PresentationDAO {
             presentationRepository.deleteById(id);
         } else {
             throw new RuntimeException("Presentation not found");
+        }
+    }
+
+    public Presentation getById(Long id) {
+        val maybePresentation = presentationRepository.findById(id);
+        if(maybePresentation.isPresent()){
+            return maybePresentation.get();
+        }
+        else {
+            throw new RuntimeException("No se ha encontrado la presentacion ");
         }
     }
 }
