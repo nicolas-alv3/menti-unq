@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.HashMap;
 
 
 @RestController
@@ -20,5 +21,12 @@ public class AnswerController {
     @ApiOperation(value = "Registra una respuesta a una slide")
     public Answer registerAnswer(@RequestBody @Valid Answer answer) {
         return answerService.create(answer);
+    }
+
+    @GetMapping(value = "/{slideId}")
+    @ResponseBody
+    @ApiOperation(value = "Obtiene las respuestas a una slide")
+    public HashMap<String, Integer> getAnswersBySlideId(@PathVariable Long slideId) {
+        return answerService.getAnswerFromSlideId(slideId);
     }
 }
