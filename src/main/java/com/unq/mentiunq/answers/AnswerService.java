@@ -5,7 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Map;
 
 @Service
 public class AnswerService {
@@ -17,7 +16,7 @@ public class AnswerService {
         return answerDAO.create(answer);
     }
 
-    public List<Map<String, Integer>> getAnswerFromSlideId(Long slideId) {
+    public List<OptionCount> getAnswerFromSlideId(Long slideId) {
         return answerDAO.getAnswerFromSlideId(slideId);
     }
 }

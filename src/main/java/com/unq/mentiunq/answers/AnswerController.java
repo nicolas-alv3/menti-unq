@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
-import java.util.Map;
 
 
 @RestController
@@ -27,7 +26,7 @@ public class AnswerController {
     @GetMapping(value = "/{slideId}")
     @ResponseBody
     @ApiOperation(value = "Obtiene las respuestas a una slide")
-    public List<Map<String, Integer>> getAnswersBySlideId(@PathVariable Long slideId) {
+    public List<OptionCount> getAnswersBySlideId(@PathVariable Long slideId) {
         return answerService.getAnswerFromSlideId(slideId);
     }
 }

@@ -5,7 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
-import java.util.Map;
 
 @Component
 public class AnswerDAO {
@@ -17,7 +16,8 @@ public class AnswerDAO {
         return answerRepository.save(answer);
     }
 
-    public List<Map<String, Integer>> getAnswerFromSlideId(Long slideId) {
-        return answerRepository.findAnswerBySlideId(slideId);
+    public List<OptionCount> getAnswerFromSlideId(Long slideId) {
+        List<OptionCount> answerBySlideId = answerRepository.findAnswerBySlideId(slideId);
+        return answerBySlideId;
     }
 }
