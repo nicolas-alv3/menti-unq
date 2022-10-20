@@ -14,6 +14,7 @@ public interface AnswerRepository extends CrudRepository<Answer, Long> {
             "         join slide on slide.id = answer.slide_id\n" +
             "where slide.id = ?1\n" +
             "group by av.values\n" +
+            "order by count(av.values) desc\n" +
             "\n", nativeQuery = true)
     List<OptionCount> findAnswerBySlideId(Long id);
 }
