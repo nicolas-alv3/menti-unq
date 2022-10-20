@@ -1,5 +1,6 @@
 package com.unq.mentiunq.answers.model;
 
+import com.unq.mentiunq.presentation.model.Slide;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -19,5 +20,6 @@ public class Answer {
     private List<String> values;
 
     @NotNull
-    private String questionId;
+    @OneToOne
+    private Slide slide;
 }

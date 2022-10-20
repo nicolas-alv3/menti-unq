@@ -1,11 +1,11 @@
 package com.unq.mentiunq.answers;
 
 import com.unq.mentiunq.answers.model.Answer;
-import lombok.val;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @Component
 public class AnswerDAO {
@@ -17,12 +17,7 @@ public class AnswerDAO {
         return answerRepository.save(answer);
     }
 
-    public HashMap<String, Integer> getAnswerFromSlideId(Long slideId) {
-        val answers = answerRepository.findAnswerByQuestionId(slideId.toString());
-        val response = new HashMap<String, Integer>();
-        answers.forEach(answer -> answer.getValues().forEach(value -> {
-            response.put(value, response.getOrDefault(value,0) + 1);
-        }));
-        return response;
+    public List<Map<String, Integer>> getAnswerFromSlideId(Long slideId) {
+        return answerRepository.findAnswerBySlideId(slideId);
     }
 }
