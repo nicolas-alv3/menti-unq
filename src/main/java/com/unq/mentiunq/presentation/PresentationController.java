@@ -50,4 +50,5 @@ public class PresentationController {
             UserInfo userInfo = userInfoService.getUserInfo(req);
             return presentationService.getAllPresentations(userInfo.getValues().get("email").toString());
     }
+
 }
