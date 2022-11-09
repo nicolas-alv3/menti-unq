@@ -17,4 +17,6 @@ public class Slide {
 
     @ElementCollection
     List<String> options;
+
+    Integer presentationOrder;
 }
