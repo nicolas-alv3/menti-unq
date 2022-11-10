@@ -31,6 +31,7 @@ public class Presentation {
     private String ownerEmail;
 
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @javax.persistence.OrderBy("presentationOrder")
     private List<Slide> slides;
 
     private Integer currentSlide;
