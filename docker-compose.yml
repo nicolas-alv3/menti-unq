@@ -33,7 +33,7 @@ services:
     image: mentiunq:latest
     build:
       context: ./
-      dockerfile: Dockerfile.production
+      dockerfile: Dockerfile
     volumes:
       - /data/mentiunqdata
     ports:
