@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 @RestController
 @CrossOrigin("*")
-@RequestMapping("/public/answer2")
+@RequestMapping("/public/answer")
 public class AnswerPublicController {
 
     @Autowired
