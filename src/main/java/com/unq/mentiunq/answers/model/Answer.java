@@ -20,6 +20,6 @@ public class Answer {
     private List<String> values;
 
     @NotNull
-    @OneToOne
+    @ManyToOne
     private MCQSlide slide;
 }
