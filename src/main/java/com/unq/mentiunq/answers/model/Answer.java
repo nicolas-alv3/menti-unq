@@ -1,6 +1,6 @@
 package com.unq.mentiunq.answers.model;
 
-import com.unq.mentiunq.presentation.model.Slide;
+import com.unq.mentiunq.presentation.model.MCQSlide;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -21,5 +21,5 @@ public class Answer {
 
     @NotNull
     @OneToOne
-    private Slide slide;
+    private MCQSlide slide;
 }
