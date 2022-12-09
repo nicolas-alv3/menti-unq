@@ -19,12 +19,13 @@ import java.util.Map;
 @NoArgsConstructor
 @Getter
 @Setter
+@DiscriminatorValue("MCQ")
 public class MCQSlide extends Slide {
 
     @ElementCollection
     private List<String> options;
 
-    @OneToMany
+    @ElementCollection
     private Map<String, Integer> answers = new HashMap<>();
 
     public void receiveAnswer(String value) {
