@@ -4,7 +4,8 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 
 @RestController
@@ -17,7 +18,7 @@ public class AnswerController {
     @GetMapping(value = "/{slideId}")
     @ResponseBody
     @ApiOperation(value = "Obtiene las respuestas a una slide")
-    public List<OptionCount> getAnswersBySlideId(@PathVariable Long slideId) {
+    public Set<Map.Entry<String, Integer>> getAnswersBySlideId(@PathVariable Long slideId) {
         return answerService.getAnswerFromSlideId(slideId);
     }
 }
