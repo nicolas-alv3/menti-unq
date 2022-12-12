@@ -36,5 +36,7 @@ services:
       dockerfile: Dockerfile
     volumes:
       - /data/mentiunqdata
+    depends_on:
+      - database
     ports:
       - "8080:8080"
