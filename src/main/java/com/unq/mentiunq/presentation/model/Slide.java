@@ -25,4 +25,5 @@ public abstract class Slide {
 
     @ElementCollection
     public abstract Map<String, Integer> getAnswers();
+    public abstract void receiveAnswer(String value);
 }
