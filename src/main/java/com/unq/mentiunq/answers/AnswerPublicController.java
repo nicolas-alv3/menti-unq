@@ -1,6 +1,7 @@
 package com.unq.mentiunq.answers;
 
-import com.unq.mentiunq.answers.model.Answer;
+import com.unq.mentiunq.answers.model.AnswerPayload;
+import com.unq.mentiunq.presentation.model.Slide;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -17,8 +18,8 @@ public class AnswerPublicController {
     @PostMapping(value = "/")
     @ResponseBody
     @ApiOperation(value = "Registra una respuesta a una slide")
-    public Answer registerAnswer(@RequestBody @Valid Answer answer) {
-        return answerService.create(answer);
+    public Slide registerAnswer(@RequestBody @Valid AnswerPayload answerPayload) {
+        return answerService.slideReceiveAnswer(answerPayload.getSlideId(),answerPayload.getValue());
     }
 
 }

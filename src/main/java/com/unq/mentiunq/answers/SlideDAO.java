@@ -14,4 +14,8 @@ public class SlideDAO {
             throw new RuntimeException("No se pudo encontrar la slide con ese ID");
         });
     }
+
+    public Slide save(Slide slide) {
+        return slideRepository.save(slide);
+    }
 }
