@@ -22,6 +22,6 @@ public class WordCloudSlide extends Slide {
 
     @Override
     public void receiveAnswer(String value) {
-        answers.put(value, answers.put(value, answers.getOrDefault(value, 0) + 1));
+        answers.put(value, answers.getOrDefault(value, 0) + 1);
     }
 }
